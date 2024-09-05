@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="background">
-    <file>assets/image-removebg-preview (3).png</file>
+    <file>assets/angry.png</file>
+    <file>assets/smile.png</file>
+    <file>assets/alive.png</file>
+    <file>assets/dead.png</file>
   </qresource>
 </RCC>
