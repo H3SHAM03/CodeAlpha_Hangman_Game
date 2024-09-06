@@ -65,7 +65,7 @@
       <item row="2" column="1">
        <widget class="QWidget" name="CountriesWidget" native="true">
         <property name="styleSheet">
-         <string notr="true">QWidget#widget_2{
+         <string notr="true">QWidget#CountriesWidget{
 border: 2px solid black;
 }</string>
         </property>
@@ -132,7 +132,7 @@ border: 2px solid black;
       <item row="0" column="1">
        <widget class="QWidget" name="WordsWidget" native="true">
         <property name="styleSheet">
-         <string notr="true">QWidget#widget{
+         <string notr="true">QWidget#WordsWidget{
 border: 2px solid black;
 }</string>
         </property>
@@ -193,7 +193,7 @@ border: 2px solid black;
       <item row="3" column="1">
        <widget class="QWidget" name="SportsWidget" native="true">
         <property name="styleSheet">
-         <string notr="true">QWidget#widget_3{
+         <string notr="true">QWidget#SportsWidget{
 border: 2px solid black;
 }</string>
         </property>
@@ -214,7 +214,7 @@ border: 2px solid black;
       <item row="1" column="1">
        <widget class="QWidget" name="MiscWidget" native="true">
         <property name="styleSheet">
-         <string notr="true">QWidget#widget_4{
+         <string notr="true">QWidget#MiscWidget{
 border: 2px solid black;
 }</string>
         </property>
@@ -238,5 +238,102 @@ border: 2px solid black;
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>153</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>325</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox_3</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox_4</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_10</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox_6</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>196</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_10</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox_7</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>368</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
