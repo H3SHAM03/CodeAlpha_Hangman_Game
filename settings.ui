@@ -71,7 +71,7 @@ border: 2px solid black;
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QCheckBox" name="checkBox_6">
+          <widget class="QCheckBox" name="country">
            <property name="text">
             <string>Country</string>
            </property>
@@ -81,7 +81,7 @@ border: 2px solid black;
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="checkBox_7">
+          <widget class="QCheckBox" name="capital">
            <property name="text">
             <string>Capital</string>
            </property>
@@ -94,7 +94,7 @@ border: 2px solid black;
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QCheckBox" name="checkBox_10">
+       <widget class="QCheckBox" name="countries">
         <property name="text">
          <string>Countries</string>
         </property>
@@ -104,7 +104,7 @@ border: 2px solid black;
        </widget>
       </item>
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_5">
+       <widget class="QCheckBox" name="words">
         <property name="maximumSize">
          <size>
           <width>80</width>
@@ -120,7 +120,7 @@ border: 2px solid black;
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QCheckBox" name="checkBox_9">
+       <widget class="QCheckBox" name="misc">
         <property name="text">
          <string>Misc</string>
         </property>
@@ -138,7 +138,7 @@ border: 2px solid black;
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QCheckBox" name="checkBox">
+          <widget class="QCheckBox" name="adverb">
            <property name="text">
             <string>Adverb</string>
            </property>
@@ -148,7 +148,7 @@ border: 2px solid black;
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="checkBox_4">
+          <widget class="QCheckBox" name="noun">
            <property name="text">
             <string>Noun</string>
            </property>
@@ -158,7 +158,7 @@ border: 2px solid black;
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="checkBox_2">
+          <widget class="QCheckBox" name="adjective">
            <property name="text">
             <string>Adjective</string>
            </property>
@@ -168,7 +168,7 @@ border: 2px solid black;
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="checkBox_3">
+          <widget class="QCheckBox" name="verb">
            <property name="text">
             <string>Verb</string>
            </property>
@@ -181,7 +181,7 @@ border: 2px solid black;
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QCheckBox" name="checkBox_11">
+       <widget class="QCheckBox" name="sports">
         <property name="text">
          <string>Sports</string>
         </property>
@@ -199,7 +199,7 @@ border: 2px solid black;
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QCheckBox" name="checkBox_8">
+          <widget class="QCheckBox" name="football">
            <property name="text">
             <string>Football</string>
            </property>
@@ -220,7 +220,7 @@ border: 2px solid black;
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
-          <widget class="QCheckBox" name="checkBox_12">
+          <widget class="QCheckBox" name="animal">
            <property name="text">
             <string>Animal</string>
            </property>
@@ -238,102 +238,5 @@ border: 2px solid black;
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>checkBox_5</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>checkBox</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>58</x>
-     <y>53</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>153</x>
-     <y>53</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox_5</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>checkBox_2</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>58</x>
-     <y>53</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>325</x>
-     <y>53</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox_5</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>checkBox_3</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>58</x>
-     <y>53</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>411</x>
-     <y>53</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox_5</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>checkBox_4</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>58</x>
-     <y>53</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>239</x>
-     <y>53</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox_10</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>checkBox_6</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>58</x>
-     <y>173</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>196</x>
-     <y>173</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox_10</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>checkBox_7</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>58</x>
-     <y>173</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>368</x>
-     <y>173</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

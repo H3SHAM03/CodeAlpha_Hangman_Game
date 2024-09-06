@@ -307,7 +307,7 @@ color: rgba(0,0,0,50)</string>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="settings">
          <property name="minimumSize">
           <size>
            <width>60</width>

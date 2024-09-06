@@ -13,9 +13,10 @@ class MyWindow(QtWidgets.QMainWindow):
 		self.mistakeFrames = [self.ui.frame_2,self.ui.frame_3,self.ui.frame_5,self.ui.frame_4,self.ui.frame]
 		self.mistakeLabels = [self.ui.label_2,self.ui.label_3,self.ui.label_4,self.ui.label_5,self.ui.label_6]
 		try:
-			generate_word()
+			generate_word(random.choice(RandomWordTypes))
 		except:
 			self.modes = ['country', 'animal', 'footballer']
+			self.showDialog("Can't use words mode (No Internet Connection)")
 		else:
 			self.modes = ['word', 'country', 'animal', 'footballer']
 		# mode = random.choice(self.modes)
@@ -62,6 +63,13 @@ class MyWindow(QtWidgets.QMainWindow):
 			i.clicked.connect(lambda checked=True ,j=i: self.play_word(j))
 		self.ui.Quit.clicked.connect(self.closeWindow)
 		self.ui.PlayAgain.clicked.connect(self.playAgain)
+		self.ui.settings.clicked.connect(self.settingsWindow)
+
+	def settingsWindow(self):
+		win = Settings()
+		win.setWindowTitle("Settings")
+		win.setWindowIcon(QtGui.QIcon("assets\\settings.png"))
+		win.show()
 
 	def play_word(self,guess):
 		if self.finished == False and self.gameOver == False:
@@ -161,3 +169,86 @@ class MyWindow(QtWidgets.QMainWindow):
 
 	def closeWindow(self):
 		self.close()
+
+	def showDialog(self,msg):
+		msgBox = QMessageBox()
+		msgBox.setIcon(QMessageBox.Information)
+		msgBox.setText(msg)
+		msgBox.setWindowTitle("QMessageBox Example")
+		msgBox.setStandardButtons(QMessageBox.Ok)
+		# msgBox.buttonClicked.connect(msgButtonClick)
+
+		returnValue = msgBox.exec()
+		if returnValue == QMessageBox.Ok:
+			print('OK clicked')
+
+class Settings(QtWidgets.QDialog):
+	def __init__(self):
+		super().__init__()
+		self.ui = uic.loadUi("settings.ui", self)
+		self.Noun = True
+		self.Verb = True
+		self.Adverb = True
+		self.Adjective = True
+		self.Words = True
+		self.Animal = True
+		self.Misc = True
+		self.Country = True
+		self.Capital = True
+		self.Countries = True
+		self.Football = True
+		self.Sports = True
+
+		self.checkBoxes = [self.ui.noun,self.ui.verb,self.ui.adverb,self.ui.adjective,self.ui.animal,self.ui.country,self.ui.capital,self.ui.football]
+		for i in self.checkBoxes:
+			i.clicked.connect(self.checkUniBoxes)
+		self.ui.words.clicked.connect(self.checkWords)
+		self.ui.misc.clicked.connect(self.checkMisc)
+		self.ui.countries.clicked.connect(self.checkCountries)
+		self.ui.sports.clicked.connect(self.checkSports)
+
+	def checkUniBoxes(self):
+		self.Noun = self.ui.noun.isChecked()
+		self.Verb = self.ui.verb.isChecked()
+		self.Adverb = self.ui.adverb.isChecked()
+		self.Adjective = self.ui.adjective.isChecked()
+		self.Animal = self.ui.animal.isChecked()
+		self.Country = self.ui.country.isChecked()
+		self.Capital = self.ui.capital.isChecked()
+		self.Football = self.ui.football.isChecked()
+		if all([self.Noun,self.Verb,self.Adverb,self.Adjective]):
+			self.ui.words.setChecked(True)
+		else:
+			self.ui.words.setChecked(False)
+		if all([self.Country,self.Capital]):
+			self.ui.countries.setChecked(True)
+		else:
+			self.ui.countries.setChecked(False)
+		if all([self.Animal]):
+			self.ui.misc.setChecked(True)
+		else:
+			self.ui.misc.setChecked(False)
+		if all([self.Football]):
+			self.ui.sports.setChecked(True)
+		else:
+			self.ui.sports.setChecked(False)
+
+	def checkWords(self):
+		state = self.ui.words.isChecked()
+		for i in self.checkBoxes[:4]:
+			i.setChecked(state)
+
+	def checkCountries(self):
+		state = self.ui.countries.isChecked()
+		for i in self.checkBoxes[5:7]:
+			i.setChecked(state)
+
+	def checkMisc(self):
+		state = self.ui.misc.isChecked()
+		for i in self.checkBoxes[4:5]:
+			i.setChecked(state)
+
+	def checkSports(self):
+		state = self.ui.sports.isChecked()
+		for i in self.checkBoxes[7:8]:
+			i.setChecked(state)
