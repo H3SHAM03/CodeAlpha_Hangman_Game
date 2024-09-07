@@ -222,6 +222,16 @@ border: 2px solid black;
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QCheckBox" name="common">
+           <property name="text">
+            <string>Common Knowledge</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>

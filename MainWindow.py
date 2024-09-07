@@ -11,7 +11,6 @@ def showDialog(msg):
 	msgBox.setText(msg)
 	msgBox.setWindowTitle("Warning")
 	msgBox.setStandardButtons(QMessageBox.Ok)
-	# msgBox.buttonClicked.connect(msgButtonClick)
 
 	returnValue = msgBox.exec()
 	if returnValue == QMessageBox.Ok:
@@ -27,58 +26,21 @@ class MyWindow(QtWidgets.QMainWindow):
 		self.RandomWordTypes = RandomWordTypes
 		self.CountryTypes = CountryTypes
 		self.oldsettings = []
+		self.settingsWin = Settings()
 		for i in range(12):
 			self.oldsettings.append(True)
 		try:
 			generate_word(random.choice(RandomWordTypes))
 		except:
-			self.modes = ['country', 'animal', 'footballer']
+			self.modes = ['country', 'animal', 'footballer','knowledge']
 			self.settingsWin.Words = False
 			for i in [self.settingsWin.ui.words,self.settingsWin.ui.noun,self.settingsWin.ui.verb,self.settingsWin.ui.adverb,self.settingsWin.ui.adjective]:
 				i.setChecked(False)
 				i.setEnabled(False)
 			showDialog("Can't use words mode (No Internet Connection)")
 		else:
-			self.modes = ['word', 'country', 'animal', 'footballer']
-		# mode = random.choice(self.modes)
-		# if mode == 'word':
-		# 	wordtype = random.choice(RandomWordTypes)
-		# 	self.word = generate_word(wordtype).lower()
-		# 	self.ui.label_7.setText("A word (" + wordtype + ')')
-		# 	print(self.word)
-		# elif mode == 'country':
-		# 	country = generate_country()
-		# 	wordtype = random.choice(CountryTypes)
-		# 	self.word = country[wordtype].lower()
-		# 	if wordtype == 'name':
-		# 		self.ui.label_7.setText('A country (' + country['region'] + ')')
-		# 	elif wordtype == 'capital':
-		# 		self.ui.label_7.setText('The capital of ' + country['name'])
-		# elif mode == 'animal':
-		# 	animal = generate_animal()
-		# 	self.word = animal.lower()
-		# 	self.ui.label_7.setText('An animal')
+			self.modes = ['word', 'country', 'animal', 'footballer', 'knowledge']
 
-
-		# self.ui.PlayAgain.setVisible(False)
-		# self.ui.Quit.setVisible(False)
-		# self.finished = False
-		# self.gameOver = False
-		# self.mistakes = 0
-		# self.plain = ''
-		# for i in range(len(self.word)):
-		# 	if self.word[i] == ' ':
-		# 		self.plain += '$'
-		# 	else:
-		# 		self.plain = self.plain + '_ '
-		# if len(self.plain) >= 18:
-		# 	for i in range(len(self.plain)):
-		# 		if self.plain[i] == '$':
-		# 			self.plain = self.plain[:i] + '\n' + self.plain[i+1:]
-		# 			break
-		# tempplain = self.plain.replace('$',' ')
-		# self.ui.label.setText(tempplain)
-		self.settingsWin = Settings()
 		self.settingsWin.setWindowTitle("Settings")
 		self.settingsWin.setWindowIcon(QtGui.QIcon("assets\\settings.png"))
 		self.settingsWin.ui.apply.clicked.connect(self.reload)
@@ -113,8 +75,10 @@ class MyWindow(QtWidgets.QMainWindow):
 					self.RandomWordTypes.append(ty)
 			if len(self.RandomWordTypes) != 0:
 				self.modes.append('word')
-		if self.settingsWin.Misc == True:
+		if self.settingsWin.ui.animal == True:
 			self.modes.append('animal')
+		if self.settingsWin.ui.common.isChecked() == True:
+			self.modes.append('knowledge')
 		if self.settingsWin.Countries == True:
 			self.CountryTypes = CountryTypes
 			self.modes.append('country')
@@ -178,7 +142,6 @@ class MyWindow(QtWidgets.QMainWindow):
 			self.ui.widget.setStyleSheet("border-image: url(:/background/assets/dead.png) 0 5 -25 0 stretch stretch;background-repeat: no-repeat;background-position: center top;")
 			self.ui.label.setText("You Lost... Try Again?\n(Word was: " + self.word + ")")
 			self.ui.label.setStyleSheet("background-color: rgba(0,0,0,0);border: 0px;color:red;")
-			# self.ui.label_7.setText("You Lost... Try Again?")
 			self.ui.PlayAgain.setVisible(True)
 			self.ui.Quit.setVisible(True)
 			self.ui.label_7.setVisible(False)
@@ -214,7 +177,10 @@ class MyWindow(QtWidgets.QMainWindow):
 			footballer = generate_footballer()
 			self.word = footballer['name'].lower()
 			self.ui.label_7.setText('A ' + str(footballer['age']) + ' years old ' + footballer['nationality'].lower() + ' ' + footballer['position'].lower() + ' footballer from ' + footballer['team'])
-
+		elif mode == 'knowledge':
+			common = generate_commonknowledge()
+			self.word = common[1].lower()
+			self.ui.label_7.setText(common[0])
 
 		self.ui.PlayAgain.setVisible(False)
 		self.ui.Quit.setVisible(False)
@@ -258,23 +224,14 @@ class Settings(QtWidgets.QDialog):
 		self.Football = True
 		self.Sports = True
 
-		self.checkBoxes = [self.ui.noun,self.ui.verb,self.ui.adverb,self.ui.adjective,self.ui.animal,self.ui.country,self.ui.capital,self.ui.football,self.ui.words,self.ui.misc,self.ui.sports,self.ui.countries]
-		for i in self.checkBoxes[:8]:
+		self.checkBoxes = [self.ui.noun,self.ui.verb,self.ui.adverb,self.ui.adjective,self.ui.animal,self.ui.common,self.ui.country,self.ui.capital,self.ui.football,self.ui.words,self.ui.misc,self.ui.sports,self.ui.countries]
+		for i in self.checkBoxes[:9]:
 			i.clicked.connect(self.checkUniBoxes)
 		self.ui.words.clicked.connect(self.checkWords)
 		self.ui.misc.clicked.connect(self.checkMisc)
 		self.ui.countries.clicked.connect(self.checkCountries)
 		self.ui.sports.clicked.connect(self.checkSports)
 
-	# def checkForInternet(self):
-	# 	try:
-	# 		generate_word()
-	# 	except:
-	# 		showDialog("Can't use words mode (No Internet Connection)")
-	# 		self.ui.words.setChecked(False)
-
-	# 	else:
-	# 		pass
 
 	def checkUniBoxes(self):
 		self.Noun = self.ui.noun.isChecked()
@@ -282,6 +239,7 @@ class Settings(QtWidgets.QDialog):
 		self.Adverb = self.ui.adverb.isChecked()
 		self.Adjective = self.ui.adjective.isChecked()
 		self.Animal = self.ui.animal.isChecked()
+		self.Common = self.ui.common.isChecked()
 		self.Country = self.ui.country.isChecked()
 		self.Capital = self.ui.capital.isChecked()
 		self.Football = self.ui.football.isChecked()
@@ -297,7 +255,7 @@ class Settings(QtWidgets.QDialog):
 		else:
 			self.ui.countries.setChecked(False)
 			self.Countries = False
-		if all([self.Animal]):
+		if all([self.Animal,self.Common]):
 			self.ui.misc.setChecked(True)
 			self.Misc = True
 		else:
@@ -310,26 +268,30 @@ class Settings(QtWidgets.QDialog):
 			self.ui.sports.setChecked(False)
 			self.Sports = False
 
+
 	def checkWords(self):
 		state = self.ui.words.isChecked()
 		for i in self.checkBoxes[:4]:
 			i.setChecked(state)
 		self.Words = state
 
+
 	def checkCountries(self):
 		state = self.ui.countries.isChecked()
-		for i in self.checkBoxes[5:7]:
+		for i in self.checkBoxes[6:8]:
 			i.setChecked(state)
 		self.Countries = state
 
+
 	def checkMisc(self):
 		state = self.ui.misc.isChecked()
-		for i in self.checkBoxes[4:5]:
+		for i in self.checkBoxes[4:6]:
 			i.setChecked(state)
 		self.Misc = state
 
+
 	def checkSports(self):
 		state = self.ui.sports.isChecked()
-		for i in self.checkBoxes[7:8]:
+		for i in self.checkBoxes[8:9]:
 			i.setChecked(state)
 		self.Sports = state

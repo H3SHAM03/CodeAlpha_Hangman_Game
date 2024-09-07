@@ -10,4 +10,3 @@ if __name__ == "__main__":
 
     #to be fixed
     #try statement for word settings for internet
-    #settings when not choosing all

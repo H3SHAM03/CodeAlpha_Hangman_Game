@@ -31,6 +31,10 @@ def generate_footballer():
     footballer = random.choice(TopFootballersData)
     return footballer
 
+def generate_commonknowledge():
+    common = random.choice(CommonKnowledgeData)
+    return common
+
 
 # def play_word(word):
 #     plain = ''
