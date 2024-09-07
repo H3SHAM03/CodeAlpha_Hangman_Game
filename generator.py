@@ -34,23 +34,3 @@ def generate_footballer():
 def generate_commonknowledge():
     common = random.choice(CommonKnowledgeData)
     return common
-
-
-# def play_word(word):
-#     plain = ''
-#     for i in range(len(word)):
-#         plain = plain + '_'
-
-#     finished = False
-#     while finished == False:
-#         print(plain)
-#         guess = input('Guess a letter: ')
-#         if guess in word:
-#             for i,letter in enumerate(word):
-#                 if guess == letter:
-#                     plain = plain[:i] + letter + plain[i+1:]
-#         print(plain)
-#         if '_' not in plain:
-#             finished = True
-
-#     print("congrats")

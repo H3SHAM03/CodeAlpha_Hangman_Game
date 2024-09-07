@@ -11,7 +11,6 @@ def showDialog(msg):
 	msgBox.setText(msg)
 	msgBox.setWindowTitle("Warning")
 	msgBox.setStandardButtons(QMessageBox.Ok)
-
 	returnValue = msgBox.exec()
 	if returnValue == QMessageBox.Ok:
 		print('OK clicked')
