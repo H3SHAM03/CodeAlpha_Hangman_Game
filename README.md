@@ -19,7 +19,8 @@ A Python and PyQt implementation of the classic Hangman game
   
 * **Settings menu**: Customize your game experience by selecting which game modes and word types you want to play with.
 ### Coming Soon
-• **Scorekeeping**: Keep track of your wins and losses, and try to beat your high score!
+* **Scorekeeping**: Keep track of your wins and losses, and try to beat your high score!
+* **Keyboard functionality**: Use your keyboard for an easier and faster playing experience.
 
 ## Getting Started
 ### Installation
