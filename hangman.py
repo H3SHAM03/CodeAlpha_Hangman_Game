@@ -7,6 +7,3 @@ if __name__ == "__main__":
     window.setWindowIcon(QtGui.QIcon('assets\\icon.png'))
     window.show()
     sys.exit(app.exec_())
-
-    #to be fixed
-    #try statement for word settings for internet

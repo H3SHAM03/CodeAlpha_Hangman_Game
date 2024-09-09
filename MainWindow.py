@@ -74,7 +74,7 @@ class MyWindow(QtWidgets.QMainWindow):
 					self.RandomWordTypes.append(ty)
 			if len(self.RandomWordTypes) != 0:
 				self.modes.append('word')
-		if self.settingsWin.ui.animal == True:
+		if self.settingsWin.ui.animal.isChecked() == True:
 			self.modes.append('animal')
 		if self.settingsWin.ui.common.isChecked() == True:
 			self.modes.append('knowledge')
@@ -160,7 +160,7 @@ class MyWindow(QtWidgets.QMainWindow):
 			wordtype = random.choice(self.RandomWordTypes)
 			self.word = generate_word(wordtype).lower()
 			self.ui.label_7.setText("A word (" + wordtype + ')')
-			print(self.word)
+			# print(self.word)
 		elif mode == 'country':
 			country = generate_country()
 			wordtype = random.choice(self.CountryTypes)
