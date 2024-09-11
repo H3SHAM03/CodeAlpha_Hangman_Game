@@ -4,6 +4,10 @@ A Python and PyQt implementation of the classic Hangman game
 ## Overview
 **HangMan** is a fun and interactive game where players try to guess a word by suggesting letters. For each letter that is not in the word, the hangman's gallows gets a little more complete. The goal is to guess the word before the gallows is complete!
 
+## Demo Video
+
+https://github.com/user-attachments/assets/d911da8d-a36b-4cd1-8002-395882f11a7e
+
 ## Features
 * **User-friendly interface**: Built using PyQt, the game features a clean and intuitive interface that makes it easy to play.
 
