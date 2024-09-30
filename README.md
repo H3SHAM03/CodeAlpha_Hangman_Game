@@ -40,6 +40,9 @@ To run the game, simply navigate to the project directory and run the following 
 ## Gameplay
 To play the game, simply type a letter to guess. If the letter is in the word, it will be filled in. If the letter is not in the word, the hangman's gallows will get a little more complete. Keep guessing until you win or the gallows is complete!
 
+## License
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+
 ## Contributing
 If you'd like to contribute to **HangMan**, please fork this repository and submit a pull request. We welcome bug fixes, feature enhancements, and new ideas!
 
